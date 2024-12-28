@@ -1,3 +1,4 @@
+package main;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -19,12 +20,15 @@ public class Collider extends JPanel implements MouseListener {
         setSize(100, 120);
     }
 
-    public Plant assignedPlant;
+    public Plant assignedPlant=null;
 
     public void setPlant(Plant p) {
-        assignedPlant = p;
+    	assignedPlant = p;
     }
-
+    
+    public Plant getPlant() {
+    	return assignedPlant;
+    }
     public void removePlant() {
         assignedPlant.stop();
         assignedPlant = null;

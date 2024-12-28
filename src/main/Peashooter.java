@@ -1,3 +1,4 @@
+package main;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 
@@ -9,12 +10,13 @@ public class Peashooter extends Plant {
     public Timer shootTimer;
 
 
-    public Peashooter(GamePanel parent, int x, int y) {
-        super(parent, x, y);
+    public Peashooter(IGamePanel igp ,int x, int y) {
+        super(igp,x, y);
         shootTimer = new Timer(2000, (ActionEvent e) -> {
             //System.out.println("SHOOT");
-            if (getGp().getLaneZombies().get(y).size() > 0) {
-                getGp().getLanePeas().get(y).add(new Pea(getGp(), y, 103 + this.getX() * 100));
+            if (getLaneZombies().get(y).size() > 0) {
+            	//System.out.println("PEASHOOT");
+            	getLanePeas().get(y).add(new Pea(getGp(), y, 103 + this.getX() * 100));
             }
         });
         shootTimer.start();
@@ -24,5 +26,8 @@ public class Peashooter extends Plant {
     public void stop() {
         shootTimer.stop();
     }
-
+    @Override
+    public String getName() {
+    	return "Peashooter";
+    }
 }

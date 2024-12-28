@@ -1,3 +1,4 @@
+package main;
 import java.awt.*;
 
 /**
@@ -17,9 +18,10 @@ public class FreezePea extends Pea {
             Rectangle zRect = new Rectangle(z.getPosX(), 109 + getMyLane() * 120, 400, 120);
             if (pRect.intersects(zRect)) {
                 z.setHealth(z.getHealth() - 300);
+                System.out.println("health:"+z.getHealth());
                 z.slow();
                 boolean exit = false;
-                if (z.getHealth() < 0) {
+                if (z.getHealth() <= 0) {
                     System.out.println("ZOMBIE DIE");
                     GamePanel.setProgress(10);
                     gp.getLaneZombies().get(getMyLane()).remove(i);
@@ -32,7 +34,11 @@ public class FreezePea extends Pea {
         /*if(posX > 2000){
             gp.lanePeas.get(myLane).remove(this);
         }*/
-        setPosX(getPosX() - 15);
+        setPosX(getPosX() + 15);
+    }
+    @Override
+    public String getName() {
+    	return "FreezePea";
     }
 
 }

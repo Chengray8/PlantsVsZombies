@@ -1,3 +1,4 @@
+package main;
 import javax.swing.*;
 
 /**
@@ -126,5 +127,8 @@ public class Zombie {
 
     public void setSlowInt(int slowInt) {
         this.slowInt = slowInt;
+    }
+    public String getName() {
+    	return "Zombie";
     }
 }
