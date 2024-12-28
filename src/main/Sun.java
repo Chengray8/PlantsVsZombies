@@ -1,3 +1,4 @@
+package main;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -25,7 +26,7 @@ public class Sun extends JPanel implements MouseListener {
         myX = startX;
         myY = startY;
         setLocation(myX, myY);
-        sunImage = new ImageIcon(this.getClass().getResource("images/sun.png")).getImage();
+        sunImage = new ImageIcon(this.getClass().getResource("/images/sun.png")).getImage();
         addMouseListener(this);
     }
 

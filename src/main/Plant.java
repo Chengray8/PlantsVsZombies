@@ -1,3 +1,7 @@
+package main;
+
+import java.util.ArrayList;
+
 /**
  * Created by Armin on 6/25/2016.
  */
@@ -8,13 +12,13 @@ public abstract class Plant {
     private int x;
     private int y;
 
-    private GamePanel gp;
+    private IGamePanel igp;
 
 
-    public Plant(GamePanel parent, int x, int y) {
+    public Plant(IGamePanel igp,int x, int y) {
         this.x = x;
         this.y = y;
-        gp = parent;
+        this.igp = igp;
     }
 
     public void stop() {
@@ -43,12 +47,17 @@ public abstract class Plant {
     public void setY(int y) {
         this.y = y;
     }
-
+    
     public GamePanel getGp() {
-        return gp;
+        return igp.getGamePanel();
     }
-
-    public void setGp(GamePanel gp) {
-        this.gp = gp;
+    public ArrayList<ArrayList<Pea>> getLanePeas() {
+    	return igp.getLanePeas();
+    }
+    public ArrayList<ArrayList<Zombie>> getLaneZombies(){
+    	return igp.getLaneZombies();
+    }
+    public String getName() {
+    	return "";
     }
 }
